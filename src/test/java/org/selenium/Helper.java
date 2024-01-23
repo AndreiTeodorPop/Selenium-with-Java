@@ -13,10 +13,6 @@ import java.io.File;
  * @created : 1/23/2024, Monday
  **/
 public class Helper {
-
-    private static final String pageScreenshotFolder = "target/demo-screenshots/pages/";
-
-
     public static boolean verifyDownloadedFile(String expectedFileName, String location) throws InterruptedException {
         Thread.sleep(10000);
         File folder = new File(location);
@@ -48,7 +44,7 @@ public class Helper {
     public static void takeScreenShotOfPage(WebDriver webdriver, String pageName) throws Exception {
         TakesScreenshot scrShot = ((TakesScreenshot) webdriver);
         File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
-        File DestFile = new File(pageScreenshotFolder + pageName);
+        File DestFile = new File(Constants.PAGE_SCREENSHOT_FOLDER + pageName);
         FileUtils.copyFile(SrcFile, DestFile);
     }
 }

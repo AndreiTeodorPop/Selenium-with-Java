@@ -1,15 +1,12 @@
 package org.selenium.pages;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.selenium.Constants;
 import org.selenium.Helper;
 import org.testng.Assert;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import static org.apache.commons.io.file.PathUtils.deleteDirectory;
 
 /**
  * @author : andrei
@@ -17,13 +14,15 @@ import static org.apache.commons.io.file.PathUtils.deleteDirectory;
  **/
 public class DownloadPage extends HomePage {
 
-    private static final String expectedFileName = "samplefile.pdf";
-    private static final String location = System.getProperty("user.dir") + File.separator + "src/main/resources/download";
-    Path download = Paths.get(location);
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    WebElement downloadButton;
+
+    public DownloadPage() {
+        InitPage();
+    }
 
     public void downloadFile() throws InterruptedException, IOException {
-        deleteDirectory(download);
-        driver.findElement(By.xpath("//a[@class='btn btn-primary']")).click();
-        Assert.assertTrue(Helper.verifyDownloadedFile(expectedFileName, location));
+        downloadButton.click();
+        Assert.assertTrue(Helper.verifyDownloadedFile(Constants.SAMPLEFILE_PDF, Constants.DOWNLOAD_LOCATION));
     }
 }

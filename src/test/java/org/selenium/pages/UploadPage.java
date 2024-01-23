@@ -1,7 +1,8 @@
 package org.selenium.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.selenium.Constants;
 
 import java.io.File;
 
@@ -11,9 +12,15 @@ import java.io.File;
  **/
 public class UploadPage extends HomePage {
 
+    @FindBy(xpath = "//input[@id='input-4']")
+    WebElement uploadButton;
+
+    public UploadPage() {
+        InitPage();
+    }
+
     public void uploadFile() {
-        WebElement fileInput = driver.findElement(By.xpath("//input[@id='input-4']"));
-        File file = new File("src/main/resources/upload/SamplePicture.jpg");
-        fileInput.sendKeys(file.getAbsolutePath());
+        File file = new File(Constants.UPLOAD_FILE);
+        uploadButton.sendKeys(file.getAbsolutePath());
     }
 }

@@ -7,11 +7,10 @@ import org.selenium.pages.HomePage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.apache.commons.io.file.PathUtils.deleteDirectory;
 
 /**
  * @author : andrei
@@ -19,18 +18,15 @@ import java.util.Map;
  **/
 public class Hook extends HomePage {
 
-    private final String location = System.getProperty("user.dir") + File.separator + "src/main/resources/download";
-
-    Path download = Paths.get(location);
-
 
     @BeforeMethod
     public void setup() throws Exception {
+        deleteDirectory(Constants.PATH_DOWNLOAD_LOCATION);
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         Map<String, Object> prefs = new HashMap<>();
-        prefs.put("download.default_directory", download.toAbsolutePath().toString());
+        prefs.put("download.default_directory", Constants.PATH_DOWNLOAD_LOCATION.toAbsolutePath().toString());
         options.setExperimentalOption("prefs", prefs);
         driver = new ChromeDriver(options);
         HomePage homePage = new HomePage();
