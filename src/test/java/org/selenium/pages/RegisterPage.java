@@ -4,6 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
+import java.io.IOException;
+
+import static org.selenium.Helper.takeScreenShotOfElement;
 import static org.selenium.Helper.takeScreenShotOfPage;
 
 /**
@@ -30,9 +33,9 @@ public class RegisterPage extends AbstractPage {
         lastNameBox.sendKeys("Pop");
     }
 
-    public void refreshPageAndScreenShot() {
+    public void refreshPageAndScreenShot() throws IOException {
         refreshButton.click();
-        //makeScreenShotOfButton(refreshButton, "RefreshButton");
+        takeScreenShotOfElement(refreshButton, "RefreshButton");
     }
 
     public UploadPage navigateToUploadPage() throws Exception {

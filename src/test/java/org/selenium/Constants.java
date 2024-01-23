@@ -11,7 +11,7 @@ public final class Constants {
     public static final String APP_URL = "https://demo.automationtesting.in/Index.html";
 
     public static final String PAGE_SCREENSHOT_FOLDER = "target/demo-screenshots/pages/";
-
+    public static final String ELEMENT_SCREENSHOT_FOLDER = "target/demo-screenshots/elements/";
     public static final String SAMPLEFILE_PDF = "samplefile.pdf";
 
     public static final String UPLOAD_FILE = "src/main/resources/upload/SamplePicture.jpg";

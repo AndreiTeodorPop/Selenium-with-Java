@@ -19,6 +19,7 @@ public class UploadPageTest extends Hook {
         UploadPage uploadPage = new UploadPage();
         homePage.navigateToRegisterPageAndAcceptCookies();
         registerPage.navigateToUploadPage();
+        uploadPage.makeScreenShotOfUploadButton();
         uploadPage.uploadFile();
     }
 }

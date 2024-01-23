@@ -22,7 +22,6 @@ public class Hook extends AbstractPage {
 
     @BeforeMethod
     public void setup() throws Exception {
-        deleteDirectory(Constants.PATH_DOWNLOAD_LOCATION);
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
