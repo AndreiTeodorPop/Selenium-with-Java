@@ -3,6 +3,7 @@ package org.selenium;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.selenium.pages.AbstractPage;
 import org.selenium.pages.HomePage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,7 +17,7 @@ import static org.apache.commons.io.file.PathUtils.deleteDirectory;
  * @author : andrei
  * @created : 1/23/2024, Monday
  **/
-public class Hook extends HomePage {
+public class Hook extends AbstractPage {
 
 
     @BeforeMethod

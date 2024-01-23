@@ -10,7 +10,7 @@ import static org.selenium.Helper.takeScreenShotOfPage;
  * @author : andrei
  * @created : 1/23/2024, Monday
  **/
-public class RegisterPage extends HomePage {
+public class RegisterPage extends AbstractPage {
     @FindBy(xpath = "//input[@ng-model='FirstName']")
     WebElement firstNameBox;
 

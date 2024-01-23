@@ -12,7 +12,7 @@ import java.io.IOException;
  * @author : andrei
  * @created : 1/23/2024, Monday
  **/
-public class DownloadPage extends HomePage {
+public class DownloadPage extends AbstractPage {
 
     @FindBy(xpath = "//a[@class='btn btn-primary']")
     WebElement downloadButton;

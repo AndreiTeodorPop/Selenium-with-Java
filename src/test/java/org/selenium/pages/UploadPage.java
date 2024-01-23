@@ -10,7 +10,7 @@ import java.io.File;
  * @author : andrei
  * @created : 1/23/2024, Monday
  **/
-public class UploadPage extends HomePage {
+public class UploadPage extends AbstractPage {
 
     @FindBy(xpath = "//input[@id='input-4']")
     WebElement uploadButton;
