@@ -1,12 +1,12 @@
 package org.selenium;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.io.FileHandler;
 
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -49,23 +49,6 @@ public class Helper {
         File DestFile = new File(Constants.PAGE_SCREENSHOT_FOLDER + pageName);
         FileUtils.copyFile(SrcFile, DestFile);
     }
-
-//    public static void takeScreenShotOfElement(WebDriver webdriver, WebElement logo, String elementName) throws IOException {
-//        File screenshot = ((TakesScreenshot) webdriver).getScreenshotAs(OutputType.FILE);
-//
-//        BufferedImage fullScreen = ImageIO.read(screenshot);
-//
-//        Point location = logo.getLocation();
-//
-//        int width = logo.getSize().getWidth();
-//        int height = logo.getSize().getHeight();
-//
-//        BufferedImage logoImage = fullScreen.getSubimage(location.getX(), location.getY(),
-//                width, height);
-//        ImageIO.write(logoImage, "png", screenshot);
-//
-//        FileUtils.copyFile(screenshot, new File(Constants.ELEMENT_SCREENSHOT_FOLDER + elementName + ".png"));
-//    }
 
     public static void takeScreenShotOfElement(WebElement logo, String elementName) throws IOException {
         File source = ((TakesScreenshot)logo).getScreenshotAs(OutputType.FILE);

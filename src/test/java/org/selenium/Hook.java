@@ -11,8 +11,6 @@ import org.testng.annotations.BeforeMethod;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.apache.commons.io.file.PathUtils.deleteDirectory;
-
 /**
  * @author : andrei
  * @created : 1/23/2024, Monday
