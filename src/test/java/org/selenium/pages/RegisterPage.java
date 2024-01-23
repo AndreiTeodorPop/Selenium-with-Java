@@ -3,6 +3,8 @@ package org.selenium.pages;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
+import static org.selenium.Helper.takeScreenShotOfPage;
+
 /**
  * @author : andrei
  * @created : 1/23/2024, Monday
@@ -19,15 +21,17 @@ public class RegisterPage extends HomePage {
         //makeScreenShotOfButton(refreshButton, "RefreshButton");
     }
 
-    public UploadPage navigateToUploadPage() {
+    public UploadPage navigateToUploadPage() throws Exception {
         driver.navigate().to("https://demo.automationtesting.in/FileUpload.html");
         Assert.assertEquals("File input - Multi select", driver.getTitle());
+        takeScreenShotOfPage(driver, "UploadPage.png") ;
         return new UploadPage();
     }
 
-    public DownloadPage navigateToDownloadPage() {
+    public DownloadPage navigateToDownloadPage() throws Exception {
         driver.navigate().to("https://demo.automationtesting.in/FileDownload.html");
         Assert.assertEquals("File input - Multi select", driver.getTitle());
+        takeScreenShotOfPage(driver,"DownloadPage.png") ;
         return new DownloadPage();
     }
 

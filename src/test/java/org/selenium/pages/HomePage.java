@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import static org.selenium.Helper.takeScreenShotOfPage;
+
 /**
  * @author : andrei
  * @created : 1/23/2024, Monday
@@ -19,17 +21,19 @@ public class HomePage {
 
     private static final String url = "https://demo.automationtesting.in/Index.html";
 
-    public HomePage navigateToHomePage() {
+    public HomePage navigateToHomePage() throws Exception {
         driver.navigate().to(url);
-//        driver.manage().window().maximize();
+        takeScreenShotOfPage(driver, "IndexPage.png");
+        driver.manage().window().maximize();
         Assert.assertEquals("Index", driver.getTitle());
         return this;
     }
 
-    public RegisterPage navigateToRegisterPageAndAcceptCookies() {
+    public RegisterPage navigateToRegisterPageAndAcceptCookies() throws Exception {
         driver.findElement(By.xpath("//img[@id='enterimg']")).click();
         driver.findElement(By.xpath("//p[@class='fc-button-label' and text() = 'Consent']")).click();
         Assert.assertEquals("Register", driver.getTitle());
+        takeScreenShotOfPage(driver, "RegisterPage.png");
         return new RegisterPage();
     }
 }

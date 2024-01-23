@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class UploadPageTest extends Hook {
 
     @Test
-    public void uploadFileDemo() {
+    public void uploadFileDemo() throws Exception {
         HomePage homePage = new HomePage();
         RegisterPage registerPage = new RegisterPage();
         UploadPage uploadPage = new UploadPage();

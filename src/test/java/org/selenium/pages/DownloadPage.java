@@ -19,7 +19,6 @@ public class DownloadPage extends HomePage {
 
     private static final String expectedFileName = "samplefile.pdf";
     private static final String location = System.getProperty("user.dir") + File.separator + "src/main/resources/download";
-
     Path download = Paths.get(location);
 
     public void downloadFile() throws InterruptedException, IOException {

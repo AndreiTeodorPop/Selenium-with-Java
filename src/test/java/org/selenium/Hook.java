@@ -25,7 +25,7 @@ public class Hook extends HomePage {
 
 
     @BeforeMethod
-    public void setup() {
+    public void setup() throws Exception {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class RegisterPageTest extends Hook {
 
     @Test
-    public void registerDemo() {
+    public void registerDemo() throws Exception {
         HomePage homePage = new HomePage();
         RegisterPage registerPage = new RegisterPage();
         homePage.navigateToRegisterPageAndAcceptCookies();
