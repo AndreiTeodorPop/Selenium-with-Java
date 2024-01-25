@@ -2,8 +2,8 @@ package org.selenium.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.selenium.Constants;
-import org.selenium.Helper;
+import org.selenium.helper.Constants;
+import org.selenium.helper.Helper;
 import org.testng.Assert;
 
 import java.io.IOException;
@@ -14,15 +14,31 @@ import java.io.IOException;
  **/
 public class DownloadPage extends AbstractPage {
 
-    @FindBy(xpath = "//a[@class='btn btn-primary']")
-    WebElement downloadButton;
+    @FindBy(id = "textbox")
+    WebElement textBox;
+
+    @FindBy(id = "createTxt")
+    WebElement createFileButton;
+
+    @FindBy(id = "link-to-download")
+    WebElement downloadFile;
 
     public DownloadPage() {
         InitPage();
     }
 
-    public void downloadFile() throws InterruptedException, IOException {
-        downloadButton.click();
-        Assert.assertTrue(Helper.verifyDownloadedFile(Constants.SAMPLEFILE_PDF, Constants.DOWNLOAD_LOCATION));
+    public void clearDownloadFolder() {
+        Helper.deleteDirectory(Constants.PATH_DOWNLOAD_LOCATION.toFile());
+    }
+
+    public void downloadFile() {
+        textBox.sendKeys("This is my generated file");
+        createFileButton.click();
+        downloadFile.click();
+    }
+
+    public void verifyDownloadFile() throws IOException, InterruptedException {
+        Assert.assertTrue(Helper.verifyDownloadedFile(Constants.INFO_TXT, Constants.DOWNLOAD_LOCATION));
+        System.out.println("File " + Constants.INFO_TXT + " downloaded successfully");
     }
 }

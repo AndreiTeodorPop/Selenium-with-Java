@@ -6,8 +6,8 @@ import org.testng.Assert;
 
 import java.io.IOException;
 
-import static org.selenium.Helper.takeScreenShotOfElement;
-import static org.selenium.Helper.takeScreenShotOfPage;
+import static org.selenium.helper.Helper.takeScreenShotOfElement;
+import static org.selenium.helper.Helper.takeScreenShotOfPage;
 
 /**
  * @author : andrei
@@ -28,7 +28,7 @@ public class RegisterPage extends AbstractPage {
     }
 
 
-    public void addUserCredentials() {
+    public void addUserName() {
         firstNameBox.sendKeys("Andrei");
         lastNameBox.sendKeys("Pop");
     }

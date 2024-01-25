@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author : andrei
  * @created : 1/23/2024, Monday
  **/
-public class AbstractPage {
+public abstract class AbstractPage {
 
     protected static WebDriver driver;
 

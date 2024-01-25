@@ -2,12 +2,12 @@ package org.selenium.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.selenium.Constants;
+import org.selenium.helper.Constants;
 
 import java.io.File;
 import java.io.IOException;
 
-import static org.selenium.Helper.takeScreenShotOfElement;
+import static org.selenium.helper.Helper.takeScreenShotOfElement;
 
 /**
  * @author : andrei

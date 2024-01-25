@@ -2,16 +2,16 @@ package org.selenium.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.selenium.Constants;
+import org.selenium.helper.Constants;
 import org.testng.Assert;
 
-import static org.selenium.Helper.takeScreenShotOfPage;
+import static org.selenium.helper.Helper.takeScreenShotOfPage;
 
 /**
  * @author : andrei
  * @created : 1/23/2024, Monday
  **/
-public class HomePage extends AbstractPage{
+public class HomePage extends AbstractPage {
 
     @FindBy(xpath = "//img[@id='enterimg']")
     WebElement registerPageRedirect;
