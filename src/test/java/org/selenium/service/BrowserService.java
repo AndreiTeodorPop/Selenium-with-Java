@@ -16,8 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BrowserService extends AbstractPage {
-    public void initSeleniumWebDriver(String browserName) throws Exception {
-        InitPage();
+    public void initSeleniumWebDriver(String browserName) {
         switch (browserName) {
             case "Chrome":
                 WebDriverManager.chromedriver().setup();
