@@ -1,7 +1,9 @@
 package org.selenium.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.io.IOException;
@@ -32,18 +34,42 @@ public class RegisterPage extends AbstractPage {
     @FindBy(xpath = "//a[@href='FileUpload.html']")
     WebElement uploadPage;
 
+    @FindBy(xpath = "//input[@ng-model='EmailAdress']")
+    WebElement emailBox;
+
+    @FindBy(xpath = "//input[@value='Male']")
+    WebElement maleRadioButton;
+
+    @FindBy(xpath = "//input[@id='checkbox2'][@value='Movies']")
+    WebElement moviesCheckBox;
+
+    @FindBy(xpath = "//input[@id='checkbox3'][@value='Hockey']")
+    WebElement hockeyCheckBox;
+
+    @FindBy(id = "country")
+    WebElement countrySelect;
+
     public RegisterPage() {
         InitPage();
     }
 
 
-    public void addUserName() {
+    public void addUserInfo() {
         firstNameBox.sendKeys("Andrei");
         lastNameBox.sendKeys("Pop");
+        emailBox.sendKeys("automation@test.com");
+        maleRadioButton.click();
+        moviesCheckBox.click();
+        hockeyCheckBox.click();
+        Select countryDropDown = new Select(countrySelect);
+        countryDropDown.selectByVisibleText("United States of America");
     }
 
-    public void refreshPageAndScreenShot() throws IOException {
+    public void refreshPage() {
         refreshButton.click();
+    }
+
+    public void makeScreenShotOfRefreshButton() throws IOException {
         takeScreenShotOfElement(refreshButton, "RefreshButton");
     }
 

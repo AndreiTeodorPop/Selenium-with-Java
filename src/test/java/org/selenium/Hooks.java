@@ -14,7 +14,7 @@ public class Hooks extends BrowserService {
 
     @BeforeMethod(alwaysRun = true)
     @Parameters({"browser"})
-    public void setup(String browserName) throws Exception {
+    public void setup(String browserName) {
         initSeleniumWebDriver(browserName);
     }
 

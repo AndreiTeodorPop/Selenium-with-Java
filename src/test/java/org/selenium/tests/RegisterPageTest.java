@@ -17,7 +17,8 @@ public class RegisterPageTest extends Hooks {
         RegisterPage registerPage = new RegisterPage();
         homePage.navigateToHomePage();
         homePage.navigateToRegisterPageAndAcceptCookies();
-        registerPage.addUserName();
-        registerPage.refreshPageAndScreenShot();
+        registerPage.addUserInfo();
+        registerPage.refreshPage();
+        registerPage.makeScreenShotOfRefreshButton();
     }
 }

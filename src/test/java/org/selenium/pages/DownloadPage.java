@@ -1,5 +1,6 @@
 package org.selenium.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.selenium.helper.Constants;
@@ -33,6 +34,7 @@ public class DownloadPage extends AbstractPage {
 
     public void downloadFile() {
         textBox.sendKeys("This is my generated file");
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", createFileButton);
         createFileButton.click();
         downloadFile.click();
     }
