@@ -23,6 +23,15 @@ public class RegisterPage extends AbstractPage {
     @FindBy(xpath = "//button[@id='Button1']")
     WebElement refreshButton;
 
+    @FindBy(xpath = "//a[@class='dropdown-toggle' and text() = 'More']")
+    WebElement moreList;
+
+    @FindBy(xpath = "//a[@href='FileDownload.html']")
+    WebElement downloadPage;
+
+    @FindBy(xpath = "//a[@href='FileUpload.html']")
+    WebElement uploadPage;
+
     public RegisterPage() {
         InitPage();
     }
@@ -39,14 +48,16 @@ public class RegisterPage extends AbstractPage {
     }
 
     public UploadPage navigateToUploadPage() throws Exception {
-        driver.navigate().to("https://demo.automationtesting.in/FileUpload.html");
+        moreList.click();
+        uploadPage.click();
         Assert.assertEquals("File input - Multi select", driver.getTitle());
         takeScreenShotOfPage(driver, "UploadPage.png");
         return new UploadPage();
     }
 
     public DownloadPage navigateToDownloadPage() throws Exception {
-        driver.navigate().to("https://demo.automationtesting.in/FileDownload.html");
+        moreList.click();
+        downloadPage.click();
         Assert.assertEquals("File input - Multi select", driver.getTitle());
         takeScreenShotOfPage(driver, "DownloadPage.png");
         return new DownloadPage();
