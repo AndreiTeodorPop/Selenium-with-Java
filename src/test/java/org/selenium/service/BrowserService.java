@@ -1,6 +1,7 @@
 package org.selenium.service;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,8 +16,10 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BrowserService extends AbstractPage {
-    public void initSeleniumWebDriver(String browserName) {
+public class BrowserService {
+
+
+    public WebDriver initSeleniumWebDriver(String browserName) {
         switch (browserName) {
             case "Chrome":
                 WebDriverManager.chromedriver().setup();
@@ -25,8 +28,7 @@ public class BrowserService extends AbstractPage {
                 Map<String, Object> chromePrefs = new HashMap<>();
                 chromePrefs.put("download.default_directory", Constants.PATH_DOWNLOAD_LOCATION.toAbsolutePath().toString());
                 chromeOptions.setExperimentalOption("prefs", chromePrefs);
-                driver = new ChromeDriver(chromeOptions);
-                break;
+                return new ChromeDriver(chromeOptions);
             case "FireFox":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxProfile firefoxProfile = new FirefoxProfile();
@@ -36,8 +38,7 @@ public class BrowserService extends AbstractPage {
                 firefoxProfile.setPreference("browser.helperApps.neverAsk.saveToDisk","application/vnd.microsoft.portable-executable");
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.setProfile(firefoxProfile);
-                driver = new FirefoxDriver(firefoxOptions);
-                break;
+                return new FirefoxDriver(firefoxOptions);
             case "Edge":
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
@@ -45,8 +46,7 @@ public class BrowserService extends AbstractPage {
                 Map<String, Object> edgePrefs = new HashMap<>();
                 edgePrefs.put("download.default_directory", Constants.PATH_DOWNLOAD_LOCATION.toAbsolutePath().toString());
                 edgeOptions.setExperimentalOption("edgePrefs", edgePrefs);
-                driver = new EdgeDriver(edgeOptions);
-                break;
+                return new EdgeDriver(edgeOptions);
             default:
                 throw new IllegalArgumentException("Provide a valid browser name");
         }

@@ -1,6 +1,7 @@
 package org.selenium.pages;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.selenium.helper.Constants;
@@ -24,9 +25,10 @@ public class DownloadPage extends AbstractPage {
     @FindBy(id = "link-to-download")
     WebElement downloadFile;
 
-    public DownloadPage() {
-        InitPage();
+    public DownloadPage(WebDriver driver) {
+        super(driver);
     }
+
 
     public void clearDownloadFolder() {
         Helper.deleteDirectory(Constants.PATH_DOWNLOAD_LOCATION.toFile());

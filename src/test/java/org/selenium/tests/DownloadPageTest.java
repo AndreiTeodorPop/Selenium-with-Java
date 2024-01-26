@@ -14,12 +14,15 @@ public class DownloadPageTest extends Hooks {
 
     @Test
     public void downloadFileDemo() throws Exception {
-        HomePage homePage = new HomePage();
-        RegisterPage registerPage = new RegisterPage();
-        DownloadPage downloadPage = new DownloadPage();
+        HomePage homePage = new HomePage(getDriver());
         homePage.navigateToHomePage();
-        homePage.navigateToRegisterPageAndAcceptCookies();
+        homePage.navigateToRegisterPage();
+
+        RegisterPage registerPage = new RegisterPage(getDriver());
+        registerPage.acceptCookies();
         registerPage.navigateToDownloadPage();
+
+        DownloadPage downloadPage = new DownloadPage(getDriver());
         downloadPage.clearDownloadFolder();
         downloadPage.downloadFile();
         downloadPage.verifyDownloadFile();

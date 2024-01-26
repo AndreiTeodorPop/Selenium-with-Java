@@ -14,11 +14,12 @@ public class UploadPageTest extends Hooks {
 
     @Test
     public void uploadFileDemo() throws Exception {
-        HomePage homePage = new HomePage();
-        RegisterPage registerPage = new RegisterPage();
-        UploadPage uploadPage = new UploadPage();
+        HomePage homePage = new HomePage(getDriver());
+        RegisterPage registerPage = new RegisterPage(getDriver());
+        UploadPage uploadPage = new UploadPage(getDriver());
         homePage.navigateToHomePage();
-        homePage.navigateToRegisterPageAndAcceptCookies();
+        homePage.navigateToRegisterPage();
+        registerPage.acceptCookies();
         registerPage.navigateToUploadPage();
         uploadPage.makeScreenShotOfUploadButton();
         uploadPage.uploadFile();

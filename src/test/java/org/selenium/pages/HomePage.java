@@ -1,5 +1,6 @@
 package org.selenium.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.selenium.helper.Constants;
@@ -16,12 +17,10 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//img[@id='enterimg']")
     WebElement registerPageRedirect;
 
-    @FindBy(xpath = "//p[@class='fc-button-label' and text() = 'Consent']")
-    WebElement acceptCookiesButton;
-
-    public HomePage() {
-        InitPage();
+    public HomePage(WebDriver driver) {
+        super(driver);
     }
+
 
     public HomePage navigateToHomePage() throws Exception {
         driver.navigate().to(Constants.APP_URL);
@@ -31,11 +30,10 @@ public class HomePage extends AbstractPage {
         return this;
     }
 
-    public RegisterPage navigateToRegisterPageAndAcceptCookies() throws Exception {
+    public RegisterPage navigateToRegisterPage() throws Exception {
         registerPageRedirect.click();
-        acceptCookiesButton.click();
         Assert.assertEquals("Register", driver.getTitle());
         takeScreenShotOfPage(driver, "RegisterPage.png");
-        return new RegisterPage();
+        return new RegisterPage(driver);
     }
 }

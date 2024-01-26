@@ -13,10 +13,12 @@ public class RegisterPageTest extends Hooks {
 
     @Test
     public void registerDemo() throws Exception {
-        HomePage homePage = new HomePage();
-        RegisterPage registerPage = new RegisterPage();
+        HomePage homePage = new HomePage(getDriver());
         homePage.navigateToHomePage();
-        homePage.navigateToRegisterPageAndAcceptCookies();
+        homePage.navigateToRegisterPage();
+
+        RegisterPage registerPage = new RegisterPage(getDriver());
+        registerPage.acceptCookies();
         registerPage.addUserInfo();
         registerPage.refreshPage();
         registerPage.makeScreenShotOfRefreshButton();

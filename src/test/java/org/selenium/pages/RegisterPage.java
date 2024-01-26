@@ -1,6 +1,6 @@
 package org.selenium.pages;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -46,11 +46,20 @@ public class RegisterPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='checkbox3'][@value='Hockey']")
     WebElement hockeyCheckBox;
 
+    @FindBy(xpath = "//p[@class='fc-button-label' and text() = 'Consent']")
+    WebElement acceptCookiesButton;
+
     @FindBy(id = "country")
     WebElement countrySelect;
 
-    public RegisterPage() {
-        InitPage();
+    public RegisterPage(WebDriver driver) {
+        super(driver);
+    }
+
+
+    public RegisterPage acceptCookies() {
+        acceptCookiesButton.click();
+        return new RegisterPage(driver);
     }
 
 
@@ -78,7 +87,7 @@ public class RegisterPage extends AbstractPage {
         uploadPage.click();
         Assert.assertEquals("File input - Multi select", driver.getTitle());
         takeScreenShotOfPage(driver, "UploadPage.png");
-        return new UploadPage();
+        return new UploadPage(driver);
     }
 
     public DownloadPage navigateToDownloadPage() throws Exception {
@@ -86,7 +95,7 @@ public class RegisterPage extends AbstractPage {
         downloadPage.click();
         Assert.assertEquals("File input - Multi select", driver.getTitle());
         takeScreenShotOfPage(driver, "DownloadPage.png");
-        return new DownloadPage();
+        return new DownloadPage(driver);
     }
 
 }

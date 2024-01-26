@@ -1,5 +1,6 @@
 package org.selenium.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.selenium.helper.Constants;
@@ -21,9 +22,10 @@ public class UploadPage extends AbstractPage {
     @FindBy(xpath = "//div[@class='btn btn-primary btn-file']")
     WebElement uploadButtonScreenShot;
 
-    public UploadPage() {
-        InitPage();
+    public UploadPage(WebDriver driver) {
+        super(driver);
     }
+
 
     public void uploadFile() {
         File file = new File(Constants.UPLOAD_FILE);
