@@ -1,6 +1,5 @@
 package org.selenium.ui.service;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,15 +20,14 @@ public class BrowserService {
     public WebDriver initSeleniumWebDriver(String browserName) {
         switch (browserName) {
             case "Chrome":
-                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--remote-allow-origins=*");
+                chromeOptions.addArguments("--headless");
                 Map<String, Object> chromePrefs = new HashMap<>();
                 chromePrefs.put("download.default_directory", Constants.PATH_DOWNLOAD_LOCATION.toAbsolutePath().toString());
                 chromeOptions.setExperimentalOption("prefs", chromePrefs);
                 return new ChromeDriver(chromeOptions);
             case "FireFox":
-                WebDriverManager.firefoxdriver().setup();
                 FirefoxProfile firefoxProfile = new FirefoxProfile();
                 firefoxProfile.setPreference("browser.download.folderList", 2);
                 firefoxProfile.setPreference("browser.download.dir",System.getProperty("user.dir") + File.separator + "src" +
@@ -39,7 +37,6 @@ public class BrowserService {
                 firefoxOptions.setProfile(firefoxProfile);
                 return new FirefoxDriver(firefoxOptions);
             case "Edge":
-                WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
                 edgeOptions.addArguments("--remote-allow-origins=*");
                 Map<String, Object> edgePrefs = new HashMap<>();

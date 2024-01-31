@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.selenium.ui.helper.Constants;
+import org.selenium.ui.helper.Helper;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +30,7 @@ public class UploadPage extends AbstractPage {
 
     public void uploadFile() {
         File file = new File(Constants.UPLOAD_FILE);
-        uploadButton.sendKeys(file.getAbsolutePath());
+        helper.sendKeys(uploadButton, file.getAbsolutePath());
     }
 
     public void makeScreenShotOfUploadButton() throws IOException {

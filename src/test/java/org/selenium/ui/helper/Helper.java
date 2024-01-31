@@ -54,4 +54,20 @@ public class Helper {
         File source = ((TakesScreenshot)logo).getScreenshotAs(OutputType.FILE);
         FileHandler.copy(source, new File(Constants.ELEMENT_SCREENSHOT_FOLDER + elementName + ".png"));
     }
+
+    public void clickElement(WebElement element) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+        }
+        element.click();
+    }
+
+    public void sendKeys(WebElement element, String value) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+        }
+        element.sendKeys(value);
+    }
 }
