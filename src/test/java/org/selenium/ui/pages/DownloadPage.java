@@ -1,11 +1,11 @@
-package org.selenium.pages;
+package org.selenium.ui.pages;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.selenium.helper.Constants;
-import org.selenium.helper.Helper;
+import org.selenium.ui.helper.Constants;
+import org.selenium.ui.helper.Helper;
 import org.testng.Assert;
 
 import java.io.IOException;

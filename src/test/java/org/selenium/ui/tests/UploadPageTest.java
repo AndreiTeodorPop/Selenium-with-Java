@@ -1,9 +1,9 @@
-package org.selenium.tests;
+package org.selenium.ui.tests;
 
-import org.selenium.Hooks;
-import org.selenium.pages.HomePage;
-import org.selenium.pages.RegisterPage;
-import org.selenium.pages.UploadPage;
+import org.selenium.ui.helper.Hooks;
+import org.selenium.ui.pages.HomePage;
+import org.selenium.ui.pages.RegisterPage;
+import org.selenium.ui.pages.UploadPage;
 import org.testng.annotations.Test;
 
 /**

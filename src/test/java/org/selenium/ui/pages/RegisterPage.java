@@ -1,4 +1,4 @@
-package org.selenium.pages;
+package org.selenium.ui.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +8,8 @@ import org.testng.Assert;
 
 import java.io.IOException;
 
-import static org.selenium.helper.Helper.takeScreenShotOfElement;
-import static org.selenium.helper.Helper.takeScreenShotOfPage;
+import static org.selenium.ui.helper.Helper.takeScreenShotOfElement;
+import static org.selenium.ui.helper.Helper.takeScreenShotOfPage;
 
 /**
  * @author : andrei

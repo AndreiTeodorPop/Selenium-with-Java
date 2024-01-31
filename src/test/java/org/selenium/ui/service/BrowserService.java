@@ -1,4 +1,4 @@
-package org.selenium.service;
+package org.selenium.ui.service;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -9,8 +9,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.selenium.helper.Constants;
-import org.selenium.pages.AbstractPage;
+import org.selenium.ui.helper.Constants;
 
 import java.io.File;
 import java.util.HashMap;

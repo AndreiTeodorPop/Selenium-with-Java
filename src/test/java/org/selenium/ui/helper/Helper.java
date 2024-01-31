@@ -1,4 +1,4 @@
-package org.selenium.helper;
+package org.selenium.ui.helper;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
