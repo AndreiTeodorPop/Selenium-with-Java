@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
  * @created : 1/23/2024, Monday
  **/
 public class DownloadPageTest extends Hooks {
-
     @Test
     public void downloadFileDemo() throws Exception {
         HomePage homePage = new HomePage(getDriver());

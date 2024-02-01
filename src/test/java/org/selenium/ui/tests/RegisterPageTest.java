@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
  * @created : 1/23/2024, Monday
  **/
 public class RegisterPageTest extends Hooks {
-
     @Test
     public void registerDemo() throws Exception {
         HomePage homePage = new HomePage(getDriver());

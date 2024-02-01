@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
  * @created : 1/23/2024, Monday
  **/
 public class UploadPageTest extends Hooks {
-
     @Test
     public void uploadFileDemo() throws Exception {
         HomePage homePage = new HomePage(getDriver());
