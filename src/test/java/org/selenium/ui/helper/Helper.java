@@ -56,18 +56,10 @@ public class Helper {
     }
 
     public void clickElement(WebElement element) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-        }
         element.click();
     }
 
     public void sendKeys(WebElement element, String value) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-        }
         element.sendKeys(value);
     }
 }
