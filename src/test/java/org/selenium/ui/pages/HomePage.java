@@ -1,12 +1,13 @@
-package org.selenium.pages;
+package org.selenium.ui.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.selenium.helper.Constants;
+import org.selenium.ui.helper.Constants;
+import org.selenium.ui.helper.Helper;
 import org.testng.Assert;
 
-import static org.selenium.helper.Helper.takeScreenShotOfPage;
+import static org.selenium.ui.helper.Helper.takeScreenShotOfPage;
 
 /**
  * @author : andrei
@@ -31,7 +32,7 @@ public class HomePage extends AbstractPage {
     }
 
     public RegisterPage navigateToRegisterPage() throws Exception {
-        registerPageRedirect.click();
+        helper.clickElement(registerPageRedirect);
         Assert.assertEquals("Register", driver.getTitle());
         takeScreenShotOfPage(driver, "RegisterPage.png");
         return new RegisterPage(driver);

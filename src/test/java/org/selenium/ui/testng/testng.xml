@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="FeatureSuite" parallel="classes" thread-count="3">
+    <test name="FeaturesSuite">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="org.selenium.ui.tests.RegisterPageTest"/>
+            <class name="org.selenium.ui.tests.DownloadPageTest"/>
+            <class name="org.selenium.ui.tests.UploadPageTest"/>
+        </classes>
+    </test>
+</suite>

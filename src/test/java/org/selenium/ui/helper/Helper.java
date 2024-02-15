@@ -1,4 +1,4 @@
-package org.selenium.helper;
+package org.selenium.ui.helper;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -53,5 +53,13 @@ public class Helper {
     public static void takeScreenShotOfElement(WebElement logo, String elementName) throws IOException {
         File source = ((TakesScreenshot)logo).getScreenshotAs(OutputType.FILE);
         FileHandler.copy(source, new File(Constants.ELEMENT_SCREENSHOT_FOLDER + elementName + ".png"));
+    }
+
+    public void clickElement(WebElement element) {
+        element.click();
+    }
+
+    public void sendKeys(WebElement element, String value) {
+        element.sendKeys(value);
     }
 }

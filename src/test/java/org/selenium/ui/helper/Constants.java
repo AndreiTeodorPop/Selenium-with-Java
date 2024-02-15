@@ -1,4 +1,4 @@
-package org.selenium.helper;
+package org.selenium.ui.helper;
 
 import java.io.File;
 import java.nio.file.Path;

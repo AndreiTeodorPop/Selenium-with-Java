@@ -1,15 +1,15 @@
-package org.selenium.pages;
+package org.selenium.ui.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.selenium.ui.helper.Helper;
 import org.testng.Assert;
 
 import java.io.IOException;
 
-import static org.selenium.helper.Helper.takeScreenShotOfElement;
-import static org.selenium.helper.Helper.takeScreenShotOfPage;
+import static org.selenium.ui.helper.Helper.*;
 
 /**
  * @author : andrei
@@ -58,18 +58,18 @@ public class RegisterPage extends AbstractPage {
 
 
     public RegisterPage acceptCookies() {
-        acceptCookiesButton.click();
+        helper.clickElement(acceptCookiesButton);
         return new RegisterPage(driver);
     }
 
 
     public void addUserInfo() {
-        firstNameBox.sendKeys("Andrei");
-        lastNameBox.sendKeys("Pop");
-        emailBox.sendKeys("automation@test.com");
-        maleRadioButton.click();
-        moviesCheckBox.click();
-        hockeyCheckBox.click();
+        helper.sendKeys(firstNameBox, "Andrei");
+        helper.sendKeys(lastNameBox, "Pop");
+        helper.sendKeys(emailBox, "automation@test.com");
+        helper.clickElement(maleRadioButton);
+        helper.clickElement(moviesCheckBox);
+        helper.clickElement(hockeyCheckBox);
         Select countryDropDown = new Select(countrySelect);
         countryDropDown.selectByVisibleText("United States of America");
     }
@@ -83,16 +83,16 @@ public class RegisterPage extends AbstractPage {
     }
 
     public UploadPage navigateToUploadPage() throws Exception {
-        moreList.click();
-        uploadPage.click();
+        helper.clickElement(moreList);
+        helper.clickElement(uploadPage);
         Assert.assertEquals("File input - Multi select", driver.getTitle());
         takeScreenShotOfPage(driver, "UploadPage.png");
         return new UploadPage(driver);
     }
 
     public DownloadPage navigateToDownloadPage() throws Exception {
-        moreList.click();
-        downloadPage.click();
+        helper.clickElement(moreList);
+        helper.clickElement(downloadPage);
         Assert.assertEquals("File input - Multi select", driver.getTitle());
         takeScreenShotOfPage(driver, "DownloadPage.png");
         return new DownloadPage(driver);

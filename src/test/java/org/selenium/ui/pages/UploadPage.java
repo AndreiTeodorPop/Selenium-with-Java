@@ -1,14 +1,15 @@
-package org.selenium.pages;
+package org.selenium.ui.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.selenium.helper.Constants;
+import org.selenium.ui.helper.Constants;
+import org.selenium.ui.helper.Helper;
 
 import java.io.File;
 import java.io.IOException;
 
-import static org.selenium.helper.Helper.takeScreenShotOfElement;
+import static org.selenium.ui.helper.Helper.takeScreenShotOfElement;
 
 /**
  * @author : andrei
@@ -29,7 +30,7 @@ public class UploadPage extends AbstractPage {
 
     public void uploadFile() {
         File file = new File(Constants.UPLOAD_FILE);
-        uploadButton.sendKeys(file.getAbsolutePath());
+        helper.sendKeys(uploadButton, file.getAbsolutePath());
     }
 
     public void makeScreenShotOfUploadButton() throws IOException {

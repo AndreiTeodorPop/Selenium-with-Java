@@ -1,8 +1,8 @@
-package org.selenium;
+package org.selenium.ui.helper;
 
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
-import org.selenium.service.BrowserService;
+import org.selenium.ui.service.BrowserService;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
